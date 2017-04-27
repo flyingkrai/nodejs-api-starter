@@ -33,8 +33,8 @@ services:
       - DATABASE_DEBUG=false
       - REDIS_URL=redis://redis:6379/0
       - SESSION_SECRET=wZjwhFtzQsd7r87W6AZw45Sm
-      - FACEBOOK_ID=1821424564802638
-      - FACEBOOK_SECRET=2339bdf25f236a42fc3a18280bf455e8
+      - FACEBOOK_ID=790597394376908
+      - FACEBOOK_SECRET=1c15230240ce3c7a8084740f7c1850a1
       - GOOGLE_ID=xxxxx.apps.googleusercontent.com
       - GOOGLE_SECRET=xxxxx
       - TWITTER_KEY=xxxxx
