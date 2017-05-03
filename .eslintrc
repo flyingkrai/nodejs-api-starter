@@ -1,7 +1,13 @@
 {
+  "env": {
+    "node": true
+  },
   "parser": "babel-eslint",
   "extends": "airbnb-base",
   "plugins": [
     "flowtype"
-  ]
+  ],
+  "rules": {
+    "no-process-env": 0
+  }
 }

@@ -10,8 +10,10 @@
 /* @flow */
 
 import { GraphQLSchema, GraphQLObjectType } from 'graphql';
+
 import Node from './types/Node';
 import ViewerType from './types/ViewerType';
+import ConfigType from './modules/core/types/ConfigType';
 
 // In order to make it work with Relay 0.x, all the top-level
 // fields are placed inside the "viewer" field
@@ -23,9 +25,11 @@ export default new GraphQLSchema({
       nodes: Node.nodesField,
       viewer: {
         type: ViewerType,
-        resolve() {
-          return Object.create(null);
-        },
+        resolve: () => Object.create(null),
+      },
+      config: {
+        type: ConfigType,
+        resolve: () => Object.create(null),
       },
     },
   }),

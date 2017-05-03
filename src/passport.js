@@ -29,7 +29,7 @@ const strategies = [
     options: {
       clientID: process.env.FACEBOOK_ID,
       clientSecret: process.env.FACEBOOK_SECRET,
-      profileFields: ['name', 'email', 'link', 'locale', 'timezone'],
+      profileFields: ['name', 'email', 'locale', 'timezone'],
     },
     readProfile(profile) {
       return {
@@ -37,34 +37,34 @@ const strategies = [
       };
     },
   },
-  {
-    name: 'Google',
-    provider: 'google',
-    Strategy: require('passport-google-oauth').OAuth2Strategy,
-    options: {
-      clientID: process.env.GOOGLE_ID,
-      clientSecret: process.env.GOOGLE_SECRET,
-    },
-    readProfile(profile) {
-      return {
-        email: profile.emails[0].value,
-      };
-    },
-  },
-  {
-    name: 'Twitter',
-    provider: 'twitter',
-    Strategy: require('passport-twitter').Strategy,
-    options: {
-      consumerKey: process.env.TWITTER_KEY,
-      consumerSecret: process.env.TWITTER_SECRET,
-    },
-    readProfile(profile) {
-      return {
-        email: `${profile.username}@twitter.com`,
-      };
-    },
-  },
+  // {
+  //   name: 'Google',
+  //   provider: 'google',
+  //   Strategy: require('passport-google-oauth').OAuth2Strategy,
+  //   options: {
+  //     clientID: process.env.GOOGLE_ID,
+  //     clientSecret: process.env.GOOGLE_SECRET,
+  //   },
+  //   readProfile(profile) {
+  //     return {
+  //       email: profile.emails[0].value,
+  //     };
+  //   },
+  // },
+  // {
+  //   name: 'Twitter',
+  //   provider: 'twitter',
+  //   Strategy: require('passport-twitter').Strategy,
+  //   options: {
+  //     consumerKey: process.env.TWITTER_KEY,
+  //     consumerSecret: process.env.TWITTER_SECRET,
+  //   },
+  //   readProfile(profile) {
+  //     return {
+  //       email: `${profile.username}@twitter.com`,
+  //     };
+  //   },
+  // },
 ];
 
 strategies.forEach(({ name, provider, Strategy, options, readProfile }) => {
