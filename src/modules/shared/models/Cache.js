@@ -82,7 +82,6 @@ export default class Cache {
    * @returns {boolean}
    */
   static hasExpired(tableName: string): boolean {
-    console.log('expitarion check', tableName);
     return !FETCH_TIMER[tableName]
       || moment().diff(FETCH_TIMER[tableName], 'minutes') > config.get('query.cacheTimeLimit');
   }

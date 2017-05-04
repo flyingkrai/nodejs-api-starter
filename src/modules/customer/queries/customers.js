@@ -7,7 +7,7 @@ const articles = connectionDefinitions({ name: 'Customer', nodeType: CustomerTyp
 
 export default {
   type: articles.connectionType,
-  description: 'Featured articles',
+  description: 'Customers query',
   args: connectionArgs,
   resolve: (_, args) => connectionFromPromisedArray(Customer.find(), args),
 };
