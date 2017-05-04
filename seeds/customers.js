@@ -5,8 +5,9 @@ const faker = require('faker');
 faker.locale = 'pt_BR';
 
 module.exports.seed = (db) => {
-  const length = 30;
+  const length = 500;
   const address = [];
+
   return Promise
     .all(Array.from({ length }).map(() => {
       const id = faker.random.uuid();
@@ -23,7 +24,8 @@ module.exports.seed = (db) => {
       }).into('address');
     }))
     .then(Promise.all(Array.from({ length }).map((_, i) => db.insert({
-      email: faker.internet.email(),
+      id: faker.random.uuid(),
+      email: `customer_email_${i}@email.com`,
       name: faker.name.findName(),
       company: faker.company.companyName(),
       occupation: faker.name.jobTitle(),
