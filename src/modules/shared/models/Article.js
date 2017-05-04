@@ -11,7 +11,7 @@
 
 import DataLoader from 'dataloader';
 import fetch from 'node-fetch';
-import redis from '../redis';
+import redis from '../../../redis';
 
 const DATA_URI = 'https://gist.githubusercontent.com/koistya/a32919e847531320675764e7308b796a/raw/articles.json';
 

@@ -10,30 +10,19 @@
 /* @flow */
 
 import db from '../../../db';
+import AbstractModel from '../../shared/models/AbstractModel';
 
-class Customer {
+export default class Customer extends AbstractModel {
+
+  static TABLE = 'customers';
+
+  static ID_KEY = 'id';
 
   static DOC_KEY = 'cpf';
 
-  static findOne(...args) {
-    return db.table('customers').where(...args).first('id', 'email');
-  }
-
   static findOneByDoc(doc: string) {
-    return db.table('customers')
+    return db.table(Customer.TABLE)
       .where({ [Customer.DOC_KEY]: doc })
-      .first('id', 'email');
-  }
-
-  static any(...args) {
-    return db.raw('SELECT EXISTS ?', db.table('customers').where(...args).select(db.raw('1')))
-      .then(x => x.rows[0].exists);
-  }
-
-  static create(data) {
-    return db.table('customers')
-      .insert(data, ['id', 'email']).then(x => x[0]);
+      .first();
   }
 }
-
-export default User;

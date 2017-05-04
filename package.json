@@ -29,6 +29,7 @@
     "juice": "^4.0.2",
     "knex": "^0.12.9",
     "lodash": "^4.17.4",
+    "moment": "^2.18.1",
     "node-fetch": "^1.6.3",
     "nodemailer": "^4.0.1",
     "passport": "^0.3.2",

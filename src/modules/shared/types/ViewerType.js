@@ -11,9 +11,11 @@
 
 import { GraphQLObjectType } from 'graphql';
 import { connectionArgs, connectionDefinitions, connectionFromPromisedArray } from 'graphql-relay';
+
 import Article from '../models/Article';
 import ArticleType from './ArticleType';
 import UserType from './UserType';
+import CustomerQueriesType from '../../customer/types/CustomerQueriesType';
 
 const articles = connectionDefinitions({ name: 'Article', nodeType: ArticleType });
 
@@ -31,6 +33,11 @@ export default new GraphQLObjectType({
       description: 'Featured articles',
       args: connectionArgs,
       resolve: (_, args) => connectionFromPromisedArray(Article.find(), args),
+    },
+    customers: {
+      type: CustomerQueriesType,
+      description: 'Customer queries',
+      resolve: () => Object.create(null),
     },
   },
 });

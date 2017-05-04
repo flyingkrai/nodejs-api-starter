@@ -8,29 +8,32 @@
  */
 
 /* @flow */
+import config from 'config';
 
-import db from '../db';
+import db from '../../../db';
 
 class User {
 
+  static table = 'users';
+
   static findOne(...args) {
-    return db.table('users').where(...args).first('id', 'email');
+    return db.table(User.table).where(...args).first('id', 'email');
   }
 
   static findOneByLogin(provider: string, key: string) {
-    return db.table('users')
+    return db.table(User.table)
       .leftJoin('user_logins', 'users.id', 'user_logins.user_id')
       .where({ 'user_logins.name': provider, 'user_logins.key': key })
       .first('id', 'email');
   }
 
   static any(...args) {
-    return db.raw('SELECT EXISTS ?', db.table('users').where(...args).select(db.raw('1')))
+    return db.raw('SELECT EXISTS ?', db.table(User.table).where(...args).select(db.raw('1')))
       .then(x => x.rows[0].exists);
   }
 
   static create(user) {
-    return db.table('users')
+    return db.table(User.table)
       .insert(user, ['id', 'email']).then(x => x[0]);
   }
 
