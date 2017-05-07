@@ -1,11 +1,15 @@
-import { GraphQLInputObjectType } from 'graphql';
+import { GraphQLInputObjectType, GraphQLNonNull } from 'graphql';
 
-export default (name, fields, description = '') => ({
-  filter: {
-    type: new GraphQLInputObjectType({
-      name,
-      fields,
-      description,
-    }),
-  },
-});
+export default (name, fields, description = '', nullable = true) => {
+  const filter = new GraphQLInputObjectType({
+    name,
+    fields,
+    description,
+  });
+
+  return {
+    filter: {
+      type: nullable ? filter : new GraphQLNonNull(filter),
+    },
+  };
+};

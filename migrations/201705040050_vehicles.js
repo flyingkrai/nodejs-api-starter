@@ -20,8 +20,10 @@ module.exports.up = async (db) => {
   await db.schema.createTable('vehicles_price_history', (table) => {
     table.string('id').notNullable().defaultTo(db.raw('uuid_generate_v1mc()')).primary();
     table.decimal('value').notNullable();
-    table.uuid('vehicle_id').notNullable();
-    table.foreign('vehicle_id').references('vehicles.id');
+    table.uuid('vehicle_id').notNullable()
+      .references('id').inTable('vehicles')
+      .onDelete('NO ACTION')
+      .onUpdate('NO ACTION');
   });
 };
 

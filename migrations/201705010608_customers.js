@@ -30,18 +30,20 @@ module.exports.up = async (db) => {
     table.string('occupation');
     table.string('cpf');
     table.string('rg');
-    table.string('phone', 50);
-    table.string('cellphone', 50);
+    table.string('phone', 15);
+    table.string('cellphone', 15);
     table.date('birthdate');
-    table.uuid('address_id');
+    table.uuid('address_id').notNullable()
+      .references('id').inTable('address')
+      .onDelete('NO ACTION')
+      .onUpdate('NO ACTION');
     table.timestamp('created_at').defaultTo(db.fn.now());
     table.timestamp('updated_at').defaultTo(db.fn.now());
-    table.foreign('address_id').references('address.id');
   });
 };
 
 module.exports.down = async (db) => {
-  await db.schema.dropTableIfExists('users');
+  await db.schema.dropTableIfExists('customers');
   await db.schema.dropTableIfExists('address');
 };
 

@@ -2,7 +2,7 @@
   {
     "short": "AC",
     "full": "Acre",
-    "citites": [
+    "cities": [
       "Acrelândia",
       "Assis Brasil",
       "Brasiléia",
@@ -30,7 +30,7 @@
   {
     "short": "AL",
     "full": "Alagoas",
-    "citites": [
+    "cities": [
       "Água Branca",
       "Anadia",
       "Arapiraca",
@@ -138,7 +138,7 @@
   {
     "short": "AM",
     "full": "Amazonas",
-    "citites": [
+    "cities": [
       "Alvarães",
       "Amaturá",
       "Anamã",
@@ -206,7 +206,7 @@
   {
     "short": "AP",
     "full": "Amapá",
-    "citites": [
+    "cities": [
       "Amapá",
       "Calçoene",
       "Cutias",
@@ -228,7 +228,7 @@
   {
     "short": "BA",
     "full": "Bahia",
-    "citites": [
+    "cities": [
       "Abaíra",
       "Abaré",
       "Acajutiba",
@@ -651,7 +651,7 @@
   {
     "short": "CE",
     "full": "Ceará",
-    "citites": [
+    "cities": [
       "Abaiara",
       "Acarapé",
       "Acaraú",
@@ -841,14 +841,14 @@
   {
     "short": "DF",
     "full": "Distrito Federal",
-    "citites": [
+    "cities": [
       "Brasília"
     ]
   },
   {
     "short": "ES",
     "full": "Espírito Santo",
-    "citites": [
+    "cities": [
       "Afonso Cláudio",
       "Água Doce do Norte",
       "Águia Branca",
@@ -932,7 +932,7 @@
   {
     "short": "GO",
     "full": "Goiás",
-    "citites": [
+    "cities": [
       "Abadia de Goiás",
       "Abadiânia",
       "Acreúna",
@@ -1184,7 +1184,7 @@
   {
     "short": "MA",
     "full": "Maranhão",
-    "citites": [
+    "cities": [
       "Açailândia",
       "Afonso Cunha",
       "Água Doce do Maranhão",
@@ -1407,7 +1407,7 @@
   {
     "short": "MG",
     "full": "Minas Gerais",
-    "citites": [
+    "cities": [
       "Abadia dos Dourados",
       "Abaeté",
       "Abre Campo",
@@ -2266,7 +2266,7 @@
   {
     "short": "MS",
     "full": "Mato Grosso do Sul",
-    "citites": [
+    "cities": [
       "Água Clara",
       "Alcinópolis",
       "Amambaí",
@@ -2349,7 +2349,7 @@
   {
     "short": "MT",
     "full": "Mato Grosso",
-    "citites": [
+    "cities": [
       "Acorizal",
       "Água Boa",
       "Alta Floresta",
@@ -2494,7 +2494,7 @@
   {
     "short": "PA",
     "full": "Pará",
-    "citites": [
+    "cities": [
       "Abaetetuba",
       "Abel Figueiredo",
       "Acará",
@@ -2643,7 +2643,7 @@
   {
     "short": "PB",
     "full": "Paraíba",
-    "citites": [
+    "cities": [
       "Água Branca",
       "Aguiar",
       "Alagoa Grande",
@@ -2872,7 +2872,7 @@
   {
     "short": "PE",
     "full": "Pernambuco",
-    "citites": [
+    "cities": [
       "Abreu e Lima",
       "Afogados da Ingazeira",
       "Afrânio",
@@ -3063,7 +3063,7 @@
   {
     "short": "PI",
     "full": "Piauí",
-    "citites": [
+    "cities": [
       "Acauã",
       "Agricolândia",
       "Água Branca",
@@ -3291,7 +3291,7 @@
   {
     "short": "PR",
     "full": "Paraná",
-    "citites": [
+    "cities": [
       "Abatiá",
       "Adrianópolis",
       "Agudos do Sul",
@@ -3696,7 +3696,7 @@
   {
     "short": "RJ",
     "full": "Rio de Janeiro",
-    "citites": [
+    "cities": [
       "Angra dos Reis",
       "Aperibé",
       "Araruama",
@@ -3794,7 +3794,7 @@
   {
     "short": "RN",
     "full": "Rio Grande do Norte",
-    "citites": [
+    "cities": [
       "Acari",
       "Açu",
       "Afonso Bezerra",
@@ -3967,7 +3967,7 @@
   {
     "short": "RO",
     "full": "Rondônia",
-    "citites": [
+    "cities": [
       "Alta Floresta d'Oeste",
       "Alto Alegre do Parecis",
       "Alto Paraíso",
@@ -4025,7 +4025,7 @@
   {
     "short": "RR",
     "full": "Roraima",
-    "citites": [
+    "cities": [
       "Alto Alegre",
       "Amajari",
       "Boa Vista",
@@ -4046,7 +4046,7 @@
   {
     "short": "RS",
     "full": "Rio Grande do Sul",
-    "citites": [
+    "cities": [
       "Aceguá",
       "Água Santa",
       "Agudo",
@@ -4548,7 +4548,7 @@
   {
     "short": "SC",
     "full": "Santa Catarina",
-    "citites": [
+    "cities": [
       "Abdon Batista",
       "Abelardo Luz",
       "Agrolândia",
@@ -4847,7 +4847,7 @@
   {
     "short": "SE",
     "full": "Sergipe",
-    "citites": [
+    "cities": [
       "Amparo de São Francisco",
       "Aquidabã",
       "Aracaju",
@@ -4928,7 +4928,7 @@
   {
     "short": "SP",
     "full": "São Paulo",
-    "citites": [
+    "cities": [
       "Adamantina",
       "Adolfo",
       "Aguaí",
@@ -5579,7 +5579,7 @@
   {
     "short": "TO",
     "full": "Tocantins",
-    "citites": [
+    "cities": [
       "Abreulândia",
       "Aguiarnópolis",
       "Aliança do Tocantins",

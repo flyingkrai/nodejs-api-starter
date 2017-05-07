@@ -13,7 +13,7 @@ import { GraphQLSchema, GraphQLObjectType } from 'graphql';
 
 import Node from './modules/shared/types/Node';
 import ViewerType from './modules/shared/types/ViewerType';
-import ConfigType from './modules/core/types/ConfigType';
+import ConfigType from './modules/config/types/ConfigType';
 
 // In order to make it work with Relay 0.x, all the top-level
 // fields are placed inside the "viewer" field
