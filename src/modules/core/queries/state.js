@@ -2,7 +2,7 @@ import { GraphQLNonNull } from 'graphql';
 import _find from 'lodash/find';
 import config from 'config';
 
-import StateType from '../types/StateType';
+import StateType from '../../shared/types/StateType';
 import StatesFilterInputType from '../types/inputs/StateFilterType';
 
 export default {

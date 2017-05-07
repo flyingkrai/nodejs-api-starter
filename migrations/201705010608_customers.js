@@ -32,6 +32,7 @@ module.exports.up = async (db) => {
     table.string('rg');
     table.string('phone', 50);
     table.string('cellphone', 50);
+    table.date('birthdate');
     table.uuid('address_id');
     table.timestamp('created_at').defaultTo(db.fn.now());
     table.timestamp('updated_at').defaultTo(db.fn.now());

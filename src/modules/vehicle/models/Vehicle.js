@@ -9,5 +9,11 @@
 
 /* @flow */
 
-export { default as Article } from './Article';
-export { default as User } from '../../user/models/User';
+import AbstractModel from '../../shared/models/AbstractModel';
+
+export default class Vehicle extends AbstractModel {
+
+  static TABLE = 'vehicles';
+
+  static ID_KEY = 'id';
+}

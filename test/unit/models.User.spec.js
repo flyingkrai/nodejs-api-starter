@@ -8,7 +8,7 @@
  */
 
 import { expect } from 'chai';
-import User from '../../src/modules/shared/models/User';
+import User from '../../src/modules/user/models/User';
 
 describe('models/User', () => {
   it('.create()', async () => {

@@ -11,7 +11,7 @@
 /* eslint-disable global-require, no-param-reassign, no-underscore-dangle */
 
 import passport from 'passport';
-import User from './modules/shared/models/User';
+import User from './modules/user/models/User';
 
 passport.serializeUser((user, done) => {
   done(null, user.id);

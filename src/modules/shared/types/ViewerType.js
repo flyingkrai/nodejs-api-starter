@@ -14,7 +14,7 @@ import { connectionArgs, connectionDefinitions, connectionFromPromisedArray } fr
 
 import Article from '../models/Article';
 import ArticleType from './ArticleType';
-import UserType from './UserType';
+import UserType from '../../user/types/UserType';
 import customers from '../../customer/queries/customers';
 
 const articles = connectionDefinitions({ name: 'Article', nodeType: ArticleType });
