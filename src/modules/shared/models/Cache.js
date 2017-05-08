@@ -54,14 +54,16 @@ export default class Cache {
     FETCH_TIMER[tableName] = moment();
 
     return Model.all()
-      .then(items =>
-        redis
+      .then((items) => {
+        if (!items || !items.length) return [];
+
+        return redis
           .msetAsync(
             items.reduce((list, item) =>
               list.concat(Cache.createCacheArray(tableName, item)), []),
           )
-          .then(() => items),
-      );
+          .then(() => items);
+      });
   }
 
   /**

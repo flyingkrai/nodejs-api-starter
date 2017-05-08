@@ -30,8 +30,8 @@ module.exports.up = async (db) => {
     table.string('occupation');
     table.string('cpf');
     table.string('rg');
-    table.string('phone', 15);
-    table.string('cellphone', 15);
+    table.string('phone', 20);
+    table.string('cellphone', 20);
     table.date('birthdate');
     table.uuid('address_id').notNullable()
       .references('id').inTable('address')

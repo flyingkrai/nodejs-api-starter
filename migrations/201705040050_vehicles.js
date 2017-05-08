@@ -12,7 +12,7 @@ module.exports.up = async (db) => {
     table.string('color');
     table.string('fuel');
     table.string('renavam');
-    table.string('chassi').notNullable();
+    table.string('chassi');
     table.timestamp('created_at').defaultTo(db.fn.now());
     table.timestamp('updated_at').defaultTo(db.fn.now());
   });

@@ -16,6 +16,7 @@ import Article from '../models/Article';
 import ArticleType from './ArticleType';
 import UserType from '../../user/types/UserType';
 import customers from '../../customer/queries/customers';
+import salesmen from '../../salesman/queries/salesmen';
 
 const articles = connectionDefinitions({ name: 'Article', nodeType: ArticleType });
 
@@ -35,5 +36,6 @@ export default new GraphQLObjectType({
       resolve: (_, args) => connectionFromPromisedArray(Article.find(), args),
     },
     customers,
+    salesmen,
   },
 });

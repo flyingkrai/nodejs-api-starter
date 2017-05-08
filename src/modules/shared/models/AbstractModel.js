@@ -31,7 +31,7 @@ export default class AbstractModel {
   }
 
   static all() {
-    return db.table(this.TABLE).map(x => this.parse(x));
+    return db.table(this.TABLE).select('*').map(x => this.parse(x));
   }
 
   static findOne(...args) {

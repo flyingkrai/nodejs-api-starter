@@ -22,7 +22,7 @@ export default {
     },
   ),
   resolve: (_, { filter = {} }) => {
-    const vehicles = config.get('vehicles');
+    const vehicles = config.get('vehicles.brands');
 
     if (filter.id) return _filter(vehicles, v => String(v.id) === filter.id);
     if (filter.name) {
