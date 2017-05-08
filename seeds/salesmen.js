@@ -16,7 +16,7 @@ module.exports.seed = (db) => {
     .then(() => Promise
       .all(Array.from({ length })
         .map(() => db.insert({
-          id: faker.random.uuid().split('-')[0],
+          code: faker.random.uuid().split('-')[0],
           name: faker.name.findName(),
           cellphone: faker.phone.phoneNumber(),
           type_id: faker.random.arrayElement(types),
