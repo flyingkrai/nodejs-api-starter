@@ -6,13 +6,7 @@ module.exports = {
   states: require('./states.json'), // eslint-disable-line
   vehicles: {
     brands: require('./vehicles.json'), // eslint-disable-line
-    fuelTypes: [
-      'Gasolina',
-      'Álcool',
-      'Flex',
-      'Gás',
-      'Diesel',
-    ],
+    fuelTypes: ['Gasolina', 'Álcool', 'Flex', 'Gás', 'Diesel'],
     colors: [
       'Amarelo',
       'Azul',
@@ -34,22 +28,20 @@ module.exports = {
   },
   salesmen: {
     types: {
-      store: {
-        id: 'store',
-        title: 'Loja',
-      },
-      broker: {
-        id: 'broker',
-        title: 'Loja',
-      },
-      third_parties: {
-        id: 'third_parties',
-        title: 'Terceiros',
-      },
-      others: {
-        id: 'others',
-        title: 'Outros',
-      },
+      store: { id: 'store', title: 'Loja' },
+      broker: { id: 'broker', title: 'Loja' },
+      third_parties: { id: 'third_parties', title: 'Terceiros' },
+      others: { id: 'others', title: 'Outros' },
+    },
+  },
+  sales: {
+    paymentTypes: {
+      financing: { id: 'financing', title: 'Financiamento' },
+      check: { id: 'check', title: 'Cheque' },
+      bank: { id: 'bank', title: 'Transferência/Depósito' },
+      money: { id: 'money', title: 'Dinheiro' },
+      car: { id: 'car', title: 'Carro na troca' },
+      others: { id: 'others', title: 'Outros' },
     },
   },
 };
