@@ -1,27 +1,18 @@
-/**
- * Node.js API Starter Kit (https://reactstarter.com/nodejs)
- *
- * Copyright © 2016-present Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
-
 /* @flow */
 
 import { GraphQLObjectType } from 'graphql';
 import { connectionArgs, connectionDefinitions, connectionFromPromisedArray } from 'graphql-relay';
 
-import Article from '../models/Article';
-import ArticleType from './ArticleType';
-import UserType from '../../user/types/UserType';
-import customers from '../../customer/queries/customers';
-import salesmen from '../../salesman/queries/salesmen';
+import Article from '../../models/Article';
+import ArticleType from '../ArticleType';
+import UserType from '../../../user/types/UserType';
+import customers from '../../../customer/queries/customers';
+import salesmen from '../../../salesman/queries/salesmen';
 
 const articles = connectionDefinitions({ name: 'Article', nodeType: ArticleType });
 
 export default new GraphQLObjectType({
-  name: 'Viewer',
+  name: 'QueryViewer',
   fields: {
     me: {
       type: UserType,

@@ -2,7 +2,7 @@ import { GraphQLNonNull, GraphQLString } from 'graphql';
 import _find from 'lodash/find';
 import config from 'config';
 
-import StateType from '../../shared/types/StateType';
+import StateType from '../../shared/types/StateCity/StateType';
 
 export default {
   type: StateType,

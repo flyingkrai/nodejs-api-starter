@@ -1,7 +1,7 @@
 import { GraphQLObjectType, GraphQLNonNull, GraphQLID, GraphQLString, GraphQLList } from 'graphql';
 import _filter from 'lodash/filter';
 
-import filterInputGenerator from '../helpers/filter-input-generator';
+import filterInputGenerator from '../../helpers/filter-input-generator';
 import VehicleModel from './VehicleModel';
 
 export default new GraphQLObjectType({

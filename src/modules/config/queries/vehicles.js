@@ -3,7 +3,7 @@ import _filter from 'lodash/filter';
 import config from 'config';
 
 import filterInputGenerator from '../../shared/helpers/filter-input-generator';
-import VehicleBrandType from '../../shared/types/VehicleBrand';
+import VehicleBrandType from '../../shared/types/Vehicle/VehicleBrand';
 
 export default {
   type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(VehicleBrandType))),
