@@ -3,6 +3,7 @@ import { GraphQLNonNull, GraphQLString } from 'graphql';
 import AddressType from '../types/AddressType';
 import AddressInputType from '../types/inputs/AddressInputType';
 import Address from '../models/Address';
+import Customer from '../../customer/models/Customer';
 
 export default {
   type: AddressType,
@@ -17,5 +18,14 @@ export default {
       description: 'Data field',
     },
   },
-  resolve: (_, { data }) => Address.create(data),
+  resolve: (_, { data, customerId }) =>
+    Address
+    // creates the address
+      .create(data)
+      .then(address =>
+        Address
+        // adds the address to customer
+          .addToCustomer(customerId, address.id)
+          // finally returns the created address
+          .then(() => address)),
 };

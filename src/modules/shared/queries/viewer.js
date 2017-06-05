@@ -6,7 +6,7 @@ export default {
   type: ViewerType,
   resolve: (root, args, { user }) => {
     // @TODO check user
-    console.log(user);
+    if (user) console.log('current user: ', user);
 
     return Object.create(null);
   },

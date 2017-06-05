@@ -1,6 +1,6 @@
 /* @flow */
 
-import { GraphQLObjectType, GraphQLNonNull, GraphQLID, GraphQLString } from 'graphql';
+import { GraphQLObjectType, GraphQLNonNull, GraphQLID, GraphQLString, GraphQLList } from 'graphql';
 
 import DateType from '../../shared/types/DateType';
 import Node from '../../shared/types/Node';
@@ -35,8 +35,8 @@ export default new GraphQLObjectType({
       type: GraphQLString,
     },
     address: {
-      type: AddressType,
-      resolve: obj => Address.findOneById(obj.address_id), // @TODO find address
+      type: new GraphQLList(AddressType),
+      resolve: obj => Address.findByCustomer(obj.id), // @TODO find address
     },
     memberSince: {
       type: DateType,

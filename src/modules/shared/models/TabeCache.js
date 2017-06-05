@@ -9,7 +9,7 @@ import redis from '../../../redis';
 const LOADERS = {};
 const FETCH_TIMER = {};
 
-export default class Cache {
+export default class TableCache {
 
   /**
    * Creates a cache key, valey array for redis
@@ -39,7 +39,7 @@ export default class Cache {
    * @param item
    */
   static updateCacheItemAsync(tableName: string, item: Object) {
-    Cache.updateCacheItem(tableName, item)
+    TableCache.updateCacheItem(tableName, item)
       .then(() => console.log(`----> cache refreshed form ${tableName}:${item.id}`));
   }
 
@@ -60,7 +60,7 @@ export default class Cache {
         return redis
           .msetAsync(
             items.reduce((list, item) =>
-              list.concat(Cache.createCacheArray(tableName, item)), []),
+              list.concat(TableCache.createCacheArray(tableName, item)), []),
           )
           .then(() => items);
       });
@@ -73,7 +73,7 @@ export default class Cache {
    * @param {Object} Model
    */
   static updateAsync(tableName: string, Model: Object) {
-    Cache.update(tableName, Model)
+    TableCache.update(tableName, Model)
       .then(() => console.log(`----> cache refreshed for ${tableName}`));
   }
 
@@ -99,7 +99,7 @@ export default class Cache {
     if (LOADERS[tableName]) return LOADERS[tableName];
 
     LOADERS[tableName] = new DataLoader(keys => Promise.resolve()
-      .then(() => Cache.hasExpired(tableName) ? Cache.update(tableName, Model) : null) // eslint-disable-line
+      .then(() => TableCache.hasExpired(tableName) ? TableCache.update(tableName, Model) : null) // eslint-disable-line
       .then(() => redis.mgetAsync(keys.map(key => `${tableName}:${key}`)))
       .then(data => data.map((item, i) => {
         if (item) return Model.parse(JSON.parse(item));
@@ -120,10 +120,10 @@ export default class Cache {
     const keys = await redis.keysAsync(`${tableName}:*`);
     const data = keys.length ?
       (await redis.mgetAsync(keys)).map(x => JSON.parse(x)) :
-      (await Cache.update(tableName, Model));
+      (await TableCache.update(tableName, Model));
 
     // Update cache in the background if it's older than config
-    if (Cache.hasExpired(tableName)) Cache.updateAsync(tableName, Model);
+    if (TableCache.hasExpired(tableName)) TableCache.updateAsync(tableName, Model);
 
     return data.map(item => Object.assign(new Model(), item));
   };
