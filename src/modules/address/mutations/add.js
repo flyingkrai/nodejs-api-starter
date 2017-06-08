@@ -18,13 +18,10 @@ export default {
     },
   },
   resolve: (_, { data, customerId }) =>
-    Address
-    // creates the address
-      .create(data)
-      .then(address =>
-        Address
-        // adds the address to customer
-          .addToCustomer(customerId, address.id)
-          // finally returns the created address
-          .then(() => address)),
+    new Address(data)
+      .save()
+      .then(address => address
+        .customers()
+        .attach(customerId)
+        .then(() => address.toJSON())),
 };

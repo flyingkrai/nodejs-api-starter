@@ -13,5 +13,5 @@ export default {
       description: 'Data field',
     },
   },
-  resolve: (_, { data }) => Customer.create(data),
+  resolve: (_, { data }) => new Customer(data).save().then(r => r.toJSON()),
 };

@@ -5,7 +5,10 @@ import Address from '../../address/models/Address';
 
 export default class Customer extends AbstractModel {
   static tableName = 'customers';
+
   get tableName() { return 'customers'; }
+
+  get uuid() { return true; }
 
   /**
    * Defines address relation

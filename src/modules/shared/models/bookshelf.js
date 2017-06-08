@@ -1,5 +1,6 @@
 import knex from 'knex';
 import Bookshelf from 'bookshelf';
+import UUIDPlugin from 'bookshelf-uuid';
 
 import CachePlugin from '../lib/Cache';
 import redis from '../../../redis';
@@ -17,5 +18,6 @@ const config = {
 const bookshelf = Bookshelf(knex(config));
 
 bookshelf.plugin(CachePlugin, { redis });
+bookshelf.plugin(UUIDPlugin);
 
 export default bookshelf;
