@@ -5,7 +5,7 @@ import { GraphQLObjectType, GraphQLNonNull, GraphQLID, GraphQLString, GraphQLLis
 import DateType from '../../shared/types/DateType';
 import Node from '../../shared/types/Node';
 import AddressType from '../../address/types/AddressType';
-import Address from '../../address/models/Address';
+import Customer from '../../customer/models/Customer';
 
 export default new GraphQLObjectType({
   name: 'Customer',
@@ -36,7 +36,7 @@ export default new GraphQLObjectType({
     },
     address: {
       type: new GraphQLList(AddressType),
-      resolve: obj => Address.findByCustomer(obj.id), // @TODO find address
+      resolve: obj => Customer.forge({ id: obj.id }).loadAddress().then(r => r.toJSON()),
     },
     memberSince: {
       type: DateType,

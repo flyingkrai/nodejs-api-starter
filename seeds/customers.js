@@ -5,8 +5,9 @@ const faker = require('faker');
 faker.locale = 'pt_BR';
 
 module.exports.seed = (db) => {
-  const length = 2;
+  const length = 10;
   const address = [];
+  const customers = [];
 
   return db.table('customers').delete()
     .then(() => db.table('salesmen').delete())
@@ -26,16 +27,25 @@ module.exports.seed = (db) => {
         }).into('address');
       }))
       .then(() => Promise
-        .all(Array.from({ length }).map((_, i) => db.insert({
-          id: faker.random.uuid(),
-          email: `customer_email_${i}@email.com`,
-          name: faker.name.findName(),
-          company: faker.company.companyName(),
-          occupation: faker.name.jobTitle(),
-          cpf: faker.finance.account(),
-          rg: faker.finance.account(),
-          phone: faker.phone.phoneNumber(),
-          cellphone: faker.phone.phoneNumber(),
-          address_id: address[i],
-        }).into('customers')))));
+        .all(Array.from({ length }).map((_, i) => {
+          const id = faker.random.uuid();
+          customers.push(id);
+
+          return db.insert({
+            id,
+            email: `customer_email_${i}@email.com`,
+            name: faker.name.findName(),
+            company: faker.company.companyName(),
+            occupation: faker.name.jobTitle(),
+            cpf: faker.finance.account(),
+            rg: faker.finance.account(),
+            phone: faker.phone.phoneNumber(),
+            cellphone: faker.phone.phoneNumber(),
+          }).into('customers');
+        }))))
+    .then(() => Promise
+      .all(Array.from({ length }).map((_, i) => db.insert({
+        customer_id: customers[i],
+        address_id: address[i],
+      }).into('customer_address'))));
 };
