@@ -1,5 +1,5 @@
 module.exports = {
   query: {
-    cacheTimeLimit: 5, // in minutes
+    cacheTimeLimit: 1, // in minutes
   },
 };
