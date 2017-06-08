@@ -19,7 +19,7 @@ async function retrieveCache(ops, method) {
   delete options.expired;
 
   if (!serial || disabled === true) {
-    console.warn('Cache skipped.');
+    console.log(`    > Cache skipped [${serial}]`);
     return this[method](options);
   }
 
@@ -29,6 +29,7 @@ async function retrieveCache(ops, method) {
 
       // Store record
       redisCli.setAsync(serial, JSON.stringify(cache), 'EX', expired);
+      console.log(`    > Cache refreshed [${serial}]`);
 
       return {
         toJSON: () => cache,
@@ -50,7 +51,7 @@ export default(bookshelf, settings) => {
   // Disable plugin if there is no Redis instance.
   if (Object.prototype.hasOwnProperty.call(settings, 'disabled') && settings.disabled === true) {
     disabled = true;
-    console.warn('Cache disabled.');
+    console.log('    > Cache disabled.');
   }
 
   bookshelf.Model.prototype.fetchAllCache = function (options) { // eslint-disable-line
