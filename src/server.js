@@ -21,7 +21,7 @@ const host = process.env.HOSTNAME || '0.0.0.0';
 
 // Launch Node.js server
 const launch = (callback) => {
-  db = require('./db').default;
+  if (!db) db = require('./db').default;
   app = require('./app').default;
   redis = require('./redis').default;
   server = app.listen(port, host, () => {

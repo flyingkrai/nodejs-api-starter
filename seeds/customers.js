@@ -37,7 +37,7 @@ module.exports.seed = (db) => {
             name: faker.name.findName(),
             company: faker.company.companyName(),
             occupation: faker.name.jobTitle(),
-            cpf: faker.finance.account(),
+            document: faker.finance.account(),
             rg: faker.finance.account(),
             phone: faker.phone.phoneNumber(),
             cellphone: faker.phone.phoneNumber(),

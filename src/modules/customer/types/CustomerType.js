@@ -19,7 +19,7 @@ export default new GraphQLObjectType({
     name: {
       type: new GraphQLNonNull(GraphQLString),
     },
-    cpf: {
+    document: {
       type: GraphQLString,
     },
     phone: {

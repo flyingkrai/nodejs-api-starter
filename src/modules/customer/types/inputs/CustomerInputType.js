@@ -17,7 +17,7 @@ export default new GraphQLInputObjectType({
     company: {
       type: GraphQLString,
     },
-    cpf: {
+    document: {
       type: new GraphQLNonNull(GraphQLString),
     },
     rg: {

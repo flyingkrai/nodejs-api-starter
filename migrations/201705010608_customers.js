@@ -12,7 +12,7 @@ module.exports.up = async (db) => {
     table.string('name');
     table.string('company');
     table.string('occupation');
-    table.string('cpf');
+    table.string('document');
     table.string('rg');
     table.string('phone', 20);
     table.string('cellphone', 20);

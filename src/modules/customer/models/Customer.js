@@ -29,4 +29,27 @@ export default class Customer extends AbstractModel {
       .related('address')
       .fetchCache({ serial: `${this.id}:${Address.tableName}` });
   }
+
+  /**
+   *
+   * @static
+   * @param {String} document
+   * @param {String} name
+   * @returns {Promise}
+   */
+  static findAllByDocumentOrName(document, name) {
+    return this
+      .query((qb) => {
+        if (document) {
+          qb.where('document', 'LIKE', `%${document}%`);
+          if (name) {
+            qb.orWhere('name', 'LIKE', `%${name}%`);
+          }
+        } else if (name) {
+          qb.where('name', 'LIKE', `%${name}%`);
+        }
+      })
+      .fetchAllCache({ serial: this.makeSearchKey(document, name) })
+      .then(r => r.toJSON());
+  }
 }
